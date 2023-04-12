@@ -3,14 +3,6 @@
 # COLOR VARIABLES
 RED="\e[31m"
 ENDCOLOR="\e[0m"
-
-if [[ `grep "^ID=" /etc/os-release | gawk -F '=' '{print $2}'` = arch ]] || [[ `grep "^ID=" /etc/os-release | gawk -F '=' '{print $2}'` = manjaro ]]; then
-    # RUN GAMEREADY-ARCH.SH
-    echo -e "\n\n${RED}<-- Running gameready-arch.sh -->${ENDCOLOR}"
-    bash <(curl -s https://raw.githubusercontent.com/NayamAmarshe/gameready/main/gameready-arch.sh)
-    exit 0
-fi
-
 # SHOW INITIAL DIALOGS
 zenity --info --text="Script made by Nayam Amarshe for the Lunix YouTube channel" --no-wrap
 zenity --warning --width 300 --title="Before Starting the Installation" --text="You may see a text asking for your password, just enter your password in the terminal. The password is for installing system libraries, so root access is required by GameReady. When you enter your password, do not worry if it doesn't show you what you typed, it's totally normal."
@@ -36,7 +28,7 @@ cd || {
     exit 1
 }
 sudo apt install -y winetricks
-zenity --warning --width 300 --title="Winetricks is now installed but to keep it on latest version at all times, we'll ask Winetricks to self-update. Just press Y and press enter."
+zenity --warning --width 300 --text="Winetricks is now installed but to keep it on latest version at all times, we'll ask Winetricks to self-update. Just press Y and press enter."
 sudo winetricks --self-update
 
 # INSTALL LUTRIS
