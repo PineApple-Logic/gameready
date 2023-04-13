@@ -31,7 +31,9 @@ cd || {
     exit 1
 }
 sudo apt install -y winetricks
-zenity --warning --width 300 --title="Winetricks is now installed but to keep it on latest version at all times,\\n we'll ask Winetricks to self-update. Just press Y and press enter."
+
+# WINETRICS SELF UPDATE
+zenity --warning --width 300 --title="Winetricks Self Update" --text="Winetricks is now installed but to keep it on latest version at all times,\\n we'll ask Winetricks to self-update. Just press Y and press enter."
 sudo winetricks --self-update
 
 # INSTALL LUTRIS
