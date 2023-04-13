@@ -73,7 +73,7 @@ if zenity --question --width 300 --title="Install Xanmod Kernel?" --text="THIS S
 fi
 
 # INSTALL WINETRICKS DEPENDENCIES
-zenity --warning --title="Alright Listen Up" --width 300 --text="Now we're going to install dependencies for WINE like DirectX, Visual C++, DotNet and more. Winetricks will try to install these dependencies for you, so it'll take some time. Do not panic if you don't receive visual feedback, it'll take time."
+zenity --warning --title="Alright Listen Up" --width 300 --text="Now we're going to install dependencies for WINE like DirectX, Visual C++, DotNet and more.\\n Winetricks will try to install these dependencies for you, so it'll take some time.\\ nDo not panic if you don't receive visual feedback, it'll take time."
 
 echo -e "\n\n${RED}<-- Installing Important WINE Helpers -->${ENDCOLOR}"
 winetricks -q -v d3dx10 d3dx9 dotnet35 dotnet40 dotnet45 dotnet48 dxvk vcrun2008 vcrun2010 vcrun2012 vcrun2019 vcrun6sp6
