@@ -22,8 +22,10 @@ Install WINE, Winetricks, Lutris, Xanmod Kernel, GameMode, WINE Dependencies in 
 - Kubuntu
 - KDE Neon
 - Xubuntu
+- Manjaro
+- Arch Linux
 - Any other distro based on Ubuntu 20.04+
-- Arch Linux and Arch Linux based distros
+- Any other distro based on Arch Linux
 
 # Installation Instructions 🚀
 
