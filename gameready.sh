@@ -14,6 +14,7 @@ echo -e "${YELLOW}Checking OS...${ENDCOLOR}"
 # PRINT OS NAME
 echo -e "${BLUE}Detected OS:${ENDCOLOR} `grep "^ID=" /etc/os-release | gawk -F '=' '{print $2}'`"
 
+# FOR ARCH AND MANJARO
 if [[ `grep "^ID=" /etc/os-release | gawk -F '=' '{print $2}'` = arch ]] || [[ `grep "^ID=" /etc/os-release | gawk -F '=' '{print $2}'` = manjaro ]];
 then
     # RUN GAMEREADY-ARCH.SH
@@ -21,11 +22,12 @@ then
     bash <(curl -s https://raw.githubusercontent.com/NayamAmarshe/gameready/main/gameready-arch.sh)
     exit 0
     
+    # FOR DEBIAN AND UBUNTU
 elif [[ `grep "^ID=" /etc/os-release | gawk -F '=' '{print $2}'` = debian ]] || [[ `grep "^ID=" /etc/os-release | gawk -F '=' '{print $2}'` = ubuntu ]];
 then
     # RUN GAMEREADY-DEBIAN.SH
-    echo -e "\n\n${RED}<-- Running gameready-debian.sh -->${ENDCOLOR}"
-    bash <(curl -s https://raw.githubusercontent.com/NayamAmarshe/gameready/main/gameready-debian.sh)
+    echo -e "\n\n${RED}<-- Running gameready-ubuntu.sh -->${ENDCOLOR}"
+    bash <(curl -s https://raw.githubusercontent.com/NayamAmarshe/gameready/main/gameready-ubuntu.sh)
     exit 0
     
 else
