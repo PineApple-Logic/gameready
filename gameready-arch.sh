@@ -15,7 +15,7 @@ fi;
 
 # SHOW INITIAL DIALOGS
 zenity --info --text="Script made by Nayam Amarshe for the Lunix YouTube channel" --no-wrap
-zenity --warning --width 300 --title="Before Starting the Installation" --text="You may see a text asking for your password, just enter your password in the terminal. The password is for installing system libraries, so root access is required by GameReady. When you enter your password, do not worry if it doesn't show you what you typed, it's totally normal."
+zenity --warning --width=100 --height=100 --no-wrap --title="Before Starting the Installation" --text="You might see a text asking for your password, just enter your password in the terminal.\\n The password is for installing system libraries, so root access is required by GameReady.\\n When you enter your password, do not worry if it doesn't show you what you typed, it's totally normal."
 
 # ENABLE PARALLEL DOWNLOADS
 sudo sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 10/" /etc/pacman.conf
@@ -45,7 +45,7 @@ echo -e "\n\n${RED}<-- Installing Winetricks -->${ENDCOLOR}"
 paru -S --noconfirm winetricks
 
 # WINETRICS SELF UPDATE
-zenity --warning --width 300 --title="Winetricks is now installed but to keep it on latest version at all times,\\n we'll ask Winetricks to self-update. Just press Y and press enter."
+zenity --warning --width 300 --title="Winetricks Self Update" --text="Winetricks is now installed but to keep it on latest version at all times,\\n we'll ask Winetricks to self-update. Just press Y and press enter."
 sudo winetricks --self-update
 
 # INSTALL LUTRIS
@@ -57,7 +57,7 @@ echo -e "\n\n${RED}<-- Installing Gamemode -->${ENDCOLOR}"
 paru -S --noconfirm gamemode lib32-gamemode
 
 # INSTALL XANMOD KERNEL
-if zenity --question --width 300 --title="Install Xanmod Kernel?" --text="Your current kernel is $(uname -r). THIS STEP IS TOTALLY OPTIONAL! We're going to install Xanmod kernel next, Xanmod is for enabling extra performance patches for kernels. Do you want to install Xanmod?"; then
+if zenity --question --width 300 --title="Install Xanmod Kernel?" --text="THIS STEP IS TOTALLY OPTIONAL! Your current kernel is $(uname -r). We're going to install the Xanmod kernel.\\nXanmod is for enabling extra performance patches for kernels but might not contain certain proprietary drivers.\\nDo you want to install Xanmod?"; then
     {
         echo -e "\n\n${RED}<-- Installing Xanmod Kernel -->${ENDCOLOR}"
         sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
