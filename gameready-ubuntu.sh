@@ -12,7 +12,8 @@ zenity --warning --width 300 --title="Before Starting the Installation" --text="
 # INSTALL WINE
 echo -e "\n\n${RED}<-- Installing WINE -->${ENDCOLOR}"
 sudo dpkg --add-architecture i386
-sudo wget -nc -O /usr/share/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+sudo mkdir -pm755 /etc/apt/keyrings
+sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 
 # REMOVE PREVIOUS WINE PPA IF PRESENT
 sudo rm /etc/apt/sources.list.d/winehq*
@@ -30,7 +31,7 @@ cd || {
     exit 1
 }
 sudo apt install -y winetricks
-zenity --warning --width 300 --title="Winetricks is now installed but to keep it on latest version at all times, we'll ask Winetricks to self-update. Just press Y and press enter."
+zenity --warning --width 300 --title="Winetricks is now installed but to keep it on latest version at all times,\\n we'll ask Winetricks to self-update. Just press Y and press enter."
 sudo winetricks --self-update
 
 # INSTALL LUTRIS
@@ -54,7 +55,7 @@ zenity --warning --width 300 --title="Before Starting the Installation" --text="
 rm -rf gamemode
 
 # INSTALL XANMOD KERNEL
-if zenity --question --width 300 --title="Install Xanmod Kernel?" --text="Your current kernel is $(uname -r). We're going to install Xanmod kernel next, Xanmod is for enabling extra performance patches for kernels and this step is required for kernels below v5.16. Do you want to install Xanmod?"; then
+if zenity --question --width 300 --title="Install Xanmod Kernel?" --text="Your current kernel is $(uname -r).\\nWe're going to install Xanmod kernel next, Xanmod is for enabling extra performance patches for kernels and this step is required for kernels below v5.16.\\n\\nDo you want to install Xanmod?"; then
     {
         echo -e "\n\n${RED}<-- Installing Xanmod Kernel -->${ENDCOLOR}"
         echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list
@@ -65,7 +66,7 @@ if zenity --question --width 300 --title="Install Xanmod Kernel?" --text="Your c
 fi
 
 # INSTALL WINETRICKS DEPENDENCIES
-zenity --warning --title="Alright Listen Up" --width 300 --text="Now we're going to install dependencies for WINE like DirectX, Visual C++, DotNet and more. Winetricks will try to install these dependencies for you, so it'll take some time. Do not panic if you don't receive visual feedback, it'll take time."
+zenity --warning --title="Alright Listen Up" --width 300 --text="Now we're going to install dependencies for WINE like DirectX, Visual C++, DotNet and more.\\nWinetricks will try to install these dependencies for you, so it'll take some time.\\nDo not panic if you don't receive visual feedback, it'll take time."
 echo -e "\n\n${RED}<-- Installing Important WINE Helpers -->${ENDCOLOR}"
 winetricks -q -v d3dx10 d3dx9 dotnet35 dotnet40 dotnet45 dotnet48 dxvk vcrun2008 vcrun2010 vcrun2012 vcrun2019 vcrun6sp6
 
